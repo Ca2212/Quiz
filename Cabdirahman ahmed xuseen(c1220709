@@ -1,0 +1,71 @@
+//cabdirahmaan ahmed xusen
+//c1220709
+import java.util.LinkedHashSet;
+import java.util.Set;
+
+public class RemoveDuplicate {
+    public static int[] removeDuplicates
+(int[] arr) {
+        // Create a set to store unique elements
+        Set<Integer> uniqueElements = new LinkedHashSet<>();
+        
+        // Add all elements from the array to the set
+        for (int num : arr) {
+            uniqueElements.add(num);
+        }
+        
+        // Convert the set back to an array and return it
+        return uniqueElements.stream().mapToInt(Integer::intValue).toArray();
+    }
+    
+    public static void main(String[] args) {
+        int[] input = {1, 2, 2, 3, 4, 4, 5};
+        int[] output = removeDuplicates(input);
+        
+        // Print the output array
+        for (int num : output) {
+            System.out.print(num + " ");
+        }
+        // Output: 1 2 3 4 5
+    }
+}
+
+
+
+
+
+
+
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Method {
+    public static List<Integer> findCommonElements(int[] array1, int[] array2) {
+        List<Integer> commonElements = new ArrayList<>();
+        
+        // Create a set to store unique elements from array1
+        List<Integer> set1 = new ArrayList<>();
+        for (int num : array1) {
+            if (!set1.contains(num)) {
+                set1.add(num);
+            }
+        }
+        
+        // Check if each element in array2 is in the set, and add it to the common elements list if so
+        for (int num : array2) {
+            if (set1.contains(num)) {
+                commonElements.add(num);
+            }
+        }
+        
+        return commonElements;
+    }
+    
+    public static void main(String[] args) {
+        int[] array1 = {1, 2, 3};
+        int[] array2 = {2, 3, 4};
+        List<Integer> commonElements = findCommonElements(array1, array2);
+        System.out.println(commonElements); // Output: [2, 3]
+    }
+}
